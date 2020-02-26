@@ -1,11 +1,9 @@
 package com.agacorporation.springbootimage_uplouder.model;
 
-import com.agacorporation.springbootimage_uplouder.UserDetailsServiceImpl;
-import org.hibernate.annotations.ValueGenerationType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import sun.util.resources.Bundles;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
