@@ -1,5 +1,6 @@
 package com.agacorporation.springbootimage_uplouder;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,9 +18,17 @@ import java.util.Collections;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
+private UserDetailsServiceImpl userDetailsServiceImpl;
+
+    @Autowired
+    public WebSecurityConfig(UserDetailsServiceImpl userDetailsServiceImpl) {
+        this.userDetailsServiceImpl = userDetailsServiceImpl;
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser(new User("test", passwordEncoder().encode("test"), Collections.singleton(new SimpleGrantedAuthority("user"))));
+     //   auth.inMemoryAuthentication().withUser(new User("test", passwordEncoder().encode("test"), Collections.singleton(new SimpleGrantedAuthority("user"))));
+    auth.userDetailsService(userDetailsServiceImpl);
     }
 
     @Override
