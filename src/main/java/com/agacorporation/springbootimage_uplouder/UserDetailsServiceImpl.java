@@ -26,9 +26,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
 
-    @EventListener(ApplicationReadyEvent.class) //wywola sie zawsze gdy apka wystaruje
-    public void addTestUser(){
-        AppUser appUser=new AppUser("aga", paswordEncoder.encode("aga"), "user");
-        appUserRepo.save(appUser);
-    }
+
 }
