@@ -46,8 +46,8 @@ private UserDetailsServiceImpl userDetailsServiceImpl;
                .and()
                .formLogin().permitAll()
                 .and()
-               .csrf().disable()
-               .headers().disable();
+               .csrf().disable();
+         //      .headers().disable();
 
     }
 
