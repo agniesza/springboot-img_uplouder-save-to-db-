@@ -3,6 +3,8 @@ package com.agacorporation.springbootimage_uplouder.gui;
 
 import com.agacorporation.springbootimage_uplouder.ImageUploader;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -19,8 +21,17 @@ private ImageUploader imageUploader;
 
         TextField textField=new TextField();
         Button button=new Button(("upload"));
+         Label label=new Label();
 
-        button.addClickListener(clickEvent-> imageUploader.uploadFile(textField.getValue()));
+        button.addClickListener(clickEvent->
+        {
+
+            String img=imageUploader.uploadFile(textField.getValue());
+            Image image=new Image(img, "there is no image");
+            label.setText("file upload successfully");
+            add(label);
+            add(image);
+        });
 
         add(textField);
         add(button);
