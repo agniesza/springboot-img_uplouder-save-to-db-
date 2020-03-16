@@ -44,7 +44,11 @@ private UserDetailsServiceImpl userDetailsServiceImpl;
                .antMatchers("/test1").authenticated()
                .antMatchers("/uploadImage").authenticated()
                .and()
-               .formLogin().permitAll();
+               .formLogin().permitAll()
+                .and()
+               .csrf().disable()
+               .headers().disable();
+
     }
 
     @Bean
