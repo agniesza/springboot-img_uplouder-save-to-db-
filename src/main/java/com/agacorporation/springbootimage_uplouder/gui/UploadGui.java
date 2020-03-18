@@ -27,6 +27,7 @@ private ImageUploader imageUploader;
         {
 
             String img=imageUploader.uploadFile(textField.getValue());
+            imageUploader.saveToDB();
             Image image=new Image(img, "there is no image");
             label.setText("file upload successfully");
             add(label);
